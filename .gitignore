@@ -10,4 +10,6 @@ code.js
 # VSCode
 .vscode/
 
+# Figma manifest
+manifest.json
 manifest copy.json
