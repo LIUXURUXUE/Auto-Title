@@ -10,7 +10,7 @@
     "watch": "npm run build -- --watch"
   },
   "author": "",
-  "license": "",
+  "license": "MIT",
   "devDependencies": {
     "@figma/eslint-plugin-figma-plugins": "*",
     "@figma/plugin-typings": "*",
