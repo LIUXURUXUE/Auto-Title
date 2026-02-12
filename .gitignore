@@ -1,0 +1,13 @@
+# Node
+*.log
+*.log.*
+node_modules
+
+out/
+dist/
+code.js
+
+# VSCode
+.vscode/
+
+manifest copy.json
