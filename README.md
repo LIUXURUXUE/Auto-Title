@@ -1,40 +1,106 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# Auto_Title - Figma 组件属性批量刷新插件
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+> ⚠️ 开发中 - 功能尚未完全实现
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+一个 Figma 插件，用于批量刷新组件实例的属性绑定。
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+## 功能特性（计划中）
 
-  https://nodejs.org/en/download/
+- 📊 **组件分析**：自动分析组件的文本图层和实例交换属性
+- 🔗 **属性绑定**：创建文本属性与实例交换属性的绑定关系
+- 🔄 **批量刷新**：一键更新所有实例的文本内容
+- 💾 **持久化存储**：绑定信息自动保存到 Figma 本地存储
+- 📄 **跨页面支持**：支持跨页面查找和刷新所有实例
 
-Next, install TypeScript using the command:
+## 使用方法
 
-  npm install -g typescript
+1. 在 Figma 中选择一个组件
+2. 运行插件，进入组件管理界面
+3. 创建属性绑定：
+   - 选择一个文本属性
+   - 选择一个实例交换属性
+   - 点击"创建绑定"
+4. 点击"刷新所有实例"批量更新
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+## 开发指南
 
-  npm install --save-dev @figma/plugin-typings
+### 环境准备
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+1. 安装 Node.js: https://nodejs.org/en/download/
+2. 克隆此项目到本地
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+### 安装依赖
 
-For more information, visit https://www.typescriptlang.org/
+```bash
+npm install
+```
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+### 构建
 
-We recommend writing TypeScript code using Visual Studio code:
+```bash
+npm run build
+```
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
+### 监听模式
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+```bash
+npm run watch
+```
+
+修改文件后自动重新编译。
+
+### 代码检查
+
+```bash
+npm run lint
+```
+
+自动修复问题：
+
+```bash
+npm run lint:fix
+```
+
+## 在 Figma 中加载
+
+1. 打开 Figma
+2. 进入 `Plugins > Development > Import plugin from manifest...`
+3. 选择 `manifest.json` 文件
+4. 运行插件
+
+## 注意事项
+
+- 使用前请先创建 `manifest.json` 文件（参考以下模板）
+- 插件需要 `dynamic-page` 权限以支持跨页面访问
+
+### manifest.json 模板
+
+```json
+{
+  "name": "Auto_Title",
+  "id": "your-unique-id-here",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": ["figma"],
+  "ui": "ui.html",
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}
+```
+
+获取插件 ID: https://www.figma.com/developers/plugin#plugin-id
+
+## 技术栈
+
+- TypeScript 5.3
+- Figma Plugin API 1.0.0
+- 纯 HTML/CSS/JavaScript（UI 层）
+- ESLint（代码规范）
+
+## 许可证
+
+MIT
